@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "commander": "^9.0.0"
+  },
+  "name": "@hexlet/code",
+  "type": "module",
+  "description": "[![Actions Status](https://github.com/rafagabidulin/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/rafagabidulin/frontend-project-lvl2/actions)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafagabidulin/frontend-project-lvl2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafagabidulin/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/rafagabidulin/frontend-project-lvl2#readme"
+}
