@@ -3,3 +3,6 @@ install: #установка зависимостей
 
 lint: #линтинг
 		npx eslint .
+
+publish: #публикация
+		npm publish --dry-run
