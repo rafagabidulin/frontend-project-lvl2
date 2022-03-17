@@ -8,7 +8,7 @@
   "type": "module",
   "description": "[![Actions Status](https://github.com/rafagabidulin/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/rafagabidulin/frontend-project-lvl2/actions)",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },

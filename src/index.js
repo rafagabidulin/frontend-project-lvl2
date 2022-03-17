@@ -1,12 +1,5 @@
 import _ from 'lodash';
-import fs from 'fs';
-import path from 'path';
-
-const parseFile = (filepath) => {
-  const checkPath = path.isAbsolute(filepath) ? filepath : path.resolve(filepath);
-  const file = fs.readFileSync(checkPath, 'utf-8');
-  return JSON.parse(file);
-};
+import parseFile from './parsing.js';
 
 const genDiff = (filepath1, filepath2) => {
   const file1 = parseFile(filepath1);
