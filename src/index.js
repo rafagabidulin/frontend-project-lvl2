@@ -8,7 +8,8 @@ const genDiff = (filepath1, filepath2) => {
   const keys2 = _.keys(file2);
   const keys = _.sortBy(_.union(keys1, keys2));
 
-  const result = keys.reduce((arr, key) => {
+  const arr = [];
+  keys.map((key) => {
     if (!_.has(file1, key)) {
       arr.push(`+ ${key}: ${file2[key]}`);
     } else if (!_.has(file2, key)) {
@@ -16,12 +17,12 @@ const genDiff = (filepath1, filepath2) => {
     } else if (file1[key] !== file2[key]) {
       arr.push(`- ${key}: ${file1[key]}`);
       arr.push(`+ ${key}: ${file2[key]}`);
-    } else if (file1[key] === file2[key]) {
+    } else {
       arr.push(`  ${key}: ${file1[key]}`);
     }
     return arr;
-  }, []);
-  return ['{', ...result, '}'].join('\n');
+  });
+  return ['{', ...arr, '}'].join('\n');
 };
 
 export default genDiff;
