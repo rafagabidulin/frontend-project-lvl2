@@ -12,9 +12,9 @@ const expectedJSON = readFile('expectedJSON.txt');
 const expectedYAML = readFile('expectedYAML.txt');
 
 test('difference between two JSONs', () => {
-  expect(genDiff('file1.json', 'file2.json')).toBe(expectedJSON);
+  expect(genDiff('file1.json', 'file2.json')).toEqual(expectedJSON);
 });
 
 test('difference between two YAMLs', () => {
-  expect(genDiff('file1.yml', 'file2.yml')).toBe(expectedYAML);
+  expect(genDiff('file1.yml', 'file2.yml')).toEqual(expectedYAML);
 });
