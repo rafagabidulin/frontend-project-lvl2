@@ -8,13 +8,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
-const expectedJSON = readFile('expectedJSON.txt');
-const expectedYAML = readFile('expectedYAML.txt');
+const expected = readFile('expected.txt');
 
 test('difference between two JSONs', () => {
-  expect(genDiff('file1.json', 'file2.json')).toEqual(expectedJSON);
+  expect(genDiff('file1.json', 'file2.json')).toEqual(expected);
 });
 
 test('difference between two YAMLs', () => {
-  expect(genDiff('file1.yml', 'file2.yml')).toEqual(expectedYAML);
+  expect(genDiff('file1.yml', 'file2.yml')).toEqual(expected);
 });
