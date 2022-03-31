@@ -17,3 +17,11 @@ test('difference between two JSONs', () => {
 test('difference between two YAMLs', () => {
   expect(genDiff('filepath1.yml', 'filepath2.yml')).toEqual(expected);
 });
+
+test('difference between two nested JSONs', () => {
+  expect(genDiff('file1.json', 'file2.json')).toEqual(expected);
+});
+
+test('difference between two nested YAMLs', () => {
+  expect(genDiff('file1.yml', 'file2.yml')).toEqual(expected);
+});
