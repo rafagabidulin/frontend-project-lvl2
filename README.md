@@ -9,7 +9,9 @@ This repository is utility? which shows thi difference between two files. It wor
 
 ## Installation
 Step 1 — clone this repository
-```$ git clone https://github.com/rafagabidulin/frontend-project-lvl2.git```
+```
+$ git clone https://github.com/rafagabidulin/frontend-project-lvl2.git
+```
 
 Step 2 — install the dependencies
 ```
