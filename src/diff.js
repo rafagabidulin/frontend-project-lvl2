@@ -1,28 +1,20 @@
-import _ from 'lodash';
-import readFile from './parsers.js';
+import { extname } from 'path';
+import readFile from './readFile.js';
+import stylish from './stylish.js';
+import parseFile from './parsers.js';
+import genTree from './genTree.js';
 
 const genDiff = (filepath1, filepath2) => {
-  const file1 = readFile(filepath1);
-  const file2 = readFile(filepath2);
-  const keys1 = Object.keys(file1);
-  const keys2 = Object.keys(file2);
-  const keys = _.union(keys1, keys2).sort();
+  const readFile1 = readFile(filepath1);
+  const readFile2 = readFile(filepath2);
 
-  const arr = [];
-  keys.map((key) => {
-    if (!_.has(file1, key)) {
-      arr.push(`  + ${key}: ${file2[key]}`);
-    } else if (!_.has(file2, key)) {
-      arr.push(`  - ${key}: ${file1[key]}`);
-    } else if (file1[key] !== file2[key]) {
-      arr.push(`  - ${key}: ${file1[key]}`);
-      arr.push(`  + ${key}: ${file2[key]}`);
-    } else {
-      arr.push(`    ${key}: ${file1[key]}`);
-    }
-    return arr;
-  });
-  return ['{', ...arr, '}'].join('\n');
+  const file1 = parseFile(readFile1, extname(filepath1));
+  const file2 = parseFile(readFile2, extname(filepath2));
+
+  const tree = genTree(file1, file2);
+
+  const result = stylish(tree);
+  return result;
 };
 
 export default genDiff;
