@@ -24,16 +24,16 @@ $ sudo npm link
 ## Commands in terminal
 Help window:
 ```
-gendiff -h
+$ gendiff -h
 ```
 
 Show difference with between two files:
 ```
-gendiff file1.json file2.json
+$ gendiff file1.json file2.json
 ```
 
 Show difference with stylish format:
 ```
-gendiff --format stylish file1.json file2.json
+$ gendiff --format stylish file1.json file2.json
 ```
 
