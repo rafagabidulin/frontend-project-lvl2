@@ -12,18 +12,28 @@ Step 1 — clone this repository
 ```$ git clone https://github.com/rafagabidulin/frontend-project-lvl2.git```
 
 Step 2 — install the dependencies
-```$ make install```
+```
+$ make install
+```
 
 Step 3 — install the packages
-```$ sudo npm link```
+```
+$ sudo npm link
+```
 
 ## Commands in terminal
 Help window:
-```gendiff -h```
+```
+gendiff -h
+```
 
 Show difference with between two files:
-```gendiff file1.json file2.json```
+```
+gendiff file1.json file2.json
+```
 
 Show difference with stylish format:
-```gendiff --format stylish file1.json file2.json```
+```
+gendiff --format stylish file1.json file2.json
+```
 
