@@ -1,11 +1,16 @@
-import fs from 'fs';
-import path from 'path';
-import yaml from 'js-yaml';
+import { load } from 'js-yaml';
 
-const parseFile = (filepath) => {
-  const checkPath = path.isAbsolute(filepath) ? filepath : path.resolve('__fixtures__', filepath);
-  const file = fs.readFileSync(checkPath, 'utf-8');
-  return path.extname(file) === '.json' ? JSON.parse(file) : yaml.load(file);
+const parseFile = (filename, format) => {
+  switch (format) {
+    case '.json':
+      return JSON.parse(filename);
+    case '.yml':
+      return load(filename);
+    case '.yaml':
+      return load(filename);
+    default:
+      throw new Error('Incorrect file format');
+  }
 };
 
 export default parseFile;
