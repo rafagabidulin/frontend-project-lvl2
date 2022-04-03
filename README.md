@@ -27,7 +27,7 @@ Help window:
 $ gendiff -h
 ```
 
-Show difference with between two files:
+Show difference between two files:
 ```
 $ gendiff file1.json file2.json
 ```
