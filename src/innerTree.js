@@ -1,49 +1,54 @@
 import _ from 'lodash';
 
-const buildInnerTree = (data1, data2) => {
+const tree = (data1, data2) => {
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
-  const sortedKeys = (_.union(keys1, keys2)).sort();
+  const sortedKeys = _.sortBy(_.union(keys1, keys2));
 
-  const innerTree = sortedKeys.map((key) => {
-    const currentValue1 = data1[key];
-    const currentValue2 = data2[key];
+  const result = sortedKeys.map((key) => {
+    const value1 = data1[key];
+    const value2 = data2[key];
 
-    if (_.isObject(currentValue1) && _.isObject(currentValue2)) {
+    if (typeof (value1) === 'object' && typeof (value2) === 'object') {
       return {
         key,
-        status: 'nested',
-        children: buildInnerTree(currentValue1, currentValue2),
-      };
-    }
-    if (!_.has(data1, key)) {
-      return {
-        key,
-        status: 'added',
-        value: currentValue2,
+        type: 'nested',
+        children: tree(value1, value2),
       };
     }
     if (!_.has(data2, key)) {
       return {
         key,
-        status: 'removed',
-        value: currentValue1,
+        type: 'deleted',
+        value: value1,
       };
     }
-    if (!_.isEqual(currentValue1, currentValue2)) {
+    if (!_.has(data1, key)) {
       return {
         key,
-        status: 'changed',
-        valueBefore: currentValue1,
-        valueAfter: currentValue2,
+        type: 'added',
+        value: value2,
       };
     }
+    if (value1 !== value2) {
+      return {
+        key,
+        type: 'changed',
+        removedValue: value1,
+        addedValue: value2,
+      };
+    }
+
     return {
       key,
-      status: 'unchanged',
-      value: currentValue1,
+      type: 'unchanged',
+      value: value1,
     };
   });
-  return innerTree;
+
+  return result;
 };
-export default buildInnerTree;
+
+const genTree = (data1, data2) => ({ type: 'root', children: tree(data1, data2) });
+
+export default genTree;
