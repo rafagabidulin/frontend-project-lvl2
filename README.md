@@ -20,7 +20,7 @@ $ make install
 
 Step 3 — install the packages
 ```
-$ sudo npm link
+$ make link
 ```
 
 ## Commands in terminal
@@ -37,5 +37,21 @@ $ gendiff file1.json file2.json
 Show difference with stylish format:
 ```
 $ gendiff --format stylish file1.json file2.json
+```
+
+## Run tests
+Run linter
+```
+$ make lint
+```
+
+Run test
+```
+$ make test
+```
+
+Run test coverage
+```
+$ make test-coverage
 ```
 
