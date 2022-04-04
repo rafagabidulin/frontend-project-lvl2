@@ -10,6 +10,7 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 const expectedOutput = readFile('expectedOutput.txt');
 const expectedNested = readFile('expectedNested.txt');
+const expectedPlain = readFile('expectedPlain.txt');
 
 test('difference between two JSONs', () => {
   expect(genDiff('filepath1.json', 'filepath2.json')).toEqual(expectedOutput);
@@ -29,4 +30,12 @@ test('difference between two nested YAMLs', () => {
 
 test('difference between nested JSON and YAML', () => {
   expect(genDiff('file1.json', 'file2.yml')).toEqual(expectedNested);
+});
+
+test('difference between two JSONs with plain', () => {
+  expect(genDiff('file1.json', 'file2.json', 'plain')).toEqual(expectedPlain);
+});
+
+test('difference between two YAMLs with plain', () => {
+  expect(genDiff('file1.yml', 'file2.yml', 'plain')).toEqual(expectedPlain);
 });
