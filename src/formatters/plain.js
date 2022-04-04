@@ -36,7 +36,7 @@ const plain = (nodes) => {
         return null;
     }
   };
-  return iter(nodes).filter((child) => child !== null).join('/n');
+  return iter(nodes).filter((child) => child !== null).join('\n');
 };
 
 export default plain;
