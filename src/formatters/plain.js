@@ -1,7 +1,8 @@
-const getValue = (value) => {
+const stringify = (value) => {
   if (value instanceof Object) {
     return '[complex value]';
   }
+
   return typeof (value) === 'string' ? `'${value}'` : value;
 };
 
@@ -17,17 +18,23 @@ const plain = (nodes) => {
     } = node;
 
     switch (type) {
+      case 'root': {
+        return children.map((child) => iter(child, key)).join('');
+      }
       case 'nested': {
         return children.map((child) => iter(child, `${acc}${key}.`)).join('');
       }
-      case 'removed': {
+      case 'deleted': {
         return `\nProperty '${acc}${key}' was removed`;
       }
       case 'added': {
-        return `\nProperty '${acc}${key}' was added with value: ${getValue(value)}`;
+        return `\nProperty '${acc}${key}' was added with value: ${stringify(value)}`;
       }
-      case 'updated': {
-        return `\nProperty '${acc}${key}' was updated. From ${getValue(removedValue)} to ${getValue(addedValue)}`;
+      case 'changed': {
+        return `\nProperty '${acc}${key}' was updated. From ${stringify(removedValue)} to ${stringify(addedValue)}`;
+      }
+      case 'unchanged': {
+        return '';
       }
       default:
         return null;
