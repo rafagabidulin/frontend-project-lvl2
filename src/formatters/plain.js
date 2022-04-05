@@ -2,7 +2,7 @@ const getValue = (value) => {
   if (value instanceof Object) {
     return '[complex value]';
   }
-  return typeof (value) === 'string' ? `${value}` : value;
+  return typeof (value) === 'string' ? `'${value}'` : value;
 };
 
 const plain = (nodes) => {
@@ -17,26 +17,24 @@ const plain = (nodes) => {
     } = node;
 
     switch (type) {
-      case 'root': {
-        return children.map((child) => iter(child, key)).join('');
-      }
       case 'nested': {
         return children.map((child) => iter(child, `${acc}${key}.`)).join('');
       }
       case 'removed': {
-        return `Property ${acc}${key} was removed`;
+        return `\nProperty '${acc}${key}' was removed`;
       }
       case 'added': {
-        return `Property ${acc}${key} was added with value: ${getValue(value)}`;
+        return `\nProperty '${acc}${key}' was added with value: ${getValue(value)}`;
       }
       case 'updated': {
-        return `Property ${acc}${key} was updated. From ${removedValue} to ${getValue(addedValue)}`;
+        return `\nProperty '${acc}${key}' was updated. From ${getValue(removedValue)} to ${getValue(addedValue)}`;
       }
       default:
         return null;
     }
   };
-  return iter(nodes).filter((child) => child !== null).join('\n');
+
+  return iter(nodes).replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
 };
 
 export default plain;
