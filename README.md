@@ -5,7 +5,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/43b008f9380d53c5052d/test_coverage)](https://codeclimate.com/github/rafagabidulin/frontend-project-lvl2/test_coverage)
 
 ## Description
-This repository is utility? which shows thi difference between two files. It works with `.yml(.yaml)` or `.json` formats.
+This repository is utility, which shows thi difference between two files. It works with `.yml(.yaml)` or `.json` formats.
 
 ## Installation
 Step 1 — clone this repository
