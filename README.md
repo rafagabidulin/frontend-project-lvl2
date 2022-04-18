@@ -55,3 +55,19 @@ Run test coverage
 $ make test-coverage
 ```
 
+## Ascinema records
+### Difference between two flat JSON and YAML files:
+[![asciicast](https://asciinema.org/a/q71g5Cl8HCJvYKBEjSjakydta.svg)](https://asciinema.org/a/q71g5Cl8HCJvYKBEjSjakydta)
+
+### Difference between two nested JSON and YAML files (stylish format):
+[![asciicast](https://asciinema.org/a/7dp80BGWEuHKBq4P7GWZEa7HT.svg)](https://asciinema.org/a/7dp80BGWEuHKBq4P7GWZEa7HT)
+
+### Difference between two nested JSON and YAML files (plain format):
+[![asciicast](https://asciinema.org/a/HTqdkJrbpAP7gGKV1PKIYJgTs.svg)](https://asciinema.org/a/HTqdkJrbpAP7gGKV1PKIYJgTs)
+
+### Difference between two nested JSON and YAML files (json format):
+[![asciicast](https://asciinema.org/a/tXEomv8Fqr2FozWwpAagX1vCX.svg)](https://asciinema.org/a/tXEomv8Fqr2FozWwpAagX1vCX)
+
+
+
+
